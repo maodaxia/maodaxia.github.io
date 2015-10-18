@@ -3,17 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Archives | 貌大侠</title>
+  <title>将数据库导入EXCEL | 貌大侠</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description">
-<meta property="og:type" content="website">
-<meta property="og:title" content="貌大侠">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="Option Explicit  ‘强制申明Dim cn As New ADODB.ConnectionDim myrs As New ADODB.RecordsetDim mycnstr As String
+Private Sub Command1_Click()Dim i%, j%Dim newxls As Excel.application ‘先声明Dim newbook As Excel.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="将数据库导入EXCEL">
+<meta property="og:url" content="http://yoursite.com/2015/10/18/将数据库导入Excel/index.html">
 <meta property="og:site_name" content="貌大侠">
-<meta property="og:description">
+<meta property="og:description" content="Option Explicit  ‘强制申明Dim cn As New ADODB.ConnectionDim myrs As New ADODB.RecordsetDim mycnstr As String
+Private Sub Command1_Click()Dim i%, j%Dim newxls As Excel.application ‘先声明Dim newbook As Excel.">
+<meta property="og:updated_time" content="2015-10-18T14:31:50.682Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="貌大侠">
-<meta name="twitter:description">
+<meta name="twitter:title" content="将数据库导入EXCEL">
+<meta name="twitter:description" content="Option Explicit  ‘强制申明Dim cn As New ADODB.ConnectionDim myrs As New ADODB.RecordsetDim mycnstr As String
+Private Sub Command1_Click()Dim i%, j%Dim newxls As Excel.application ‘先声明Dim newbook As Excel.">
   
     <link rel="alternative" href="/atom.xml" title="貌大侠" type="application/atom+xml">
   
@@ -194,103 +198,103 @@
 		</header>				
 	</div>
 </nav>
-      <div class="body-wrap">
+      <div class="body-wrap"><article id="post-将数据库导入Excel" class="article article-type-post" itemscope itemprop="blogPost">
   
+    <div class="article-meta">
+      <a href="/2015/10/18/将数据库导入Excel/" class="article-date">
+  	<time datetime="2015-10-18T14:31:50.682Z" itemprop="datePublished">2015-10-18</time>
+</a>
+    </div>
   
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
     
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      将数据库导入EXCEL
+    </h1>
+  
+
+      </header>
       
+      <div class="article-info article-info-post">
+        
+        
+
+        <div class="clearfix"></div>
+      </div>
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/10/18/将数据库导入Excel/" class="archive-article-date">
-  	<time datetime="2015-10-18T14:31:50.682Z" itemprop="datePublished">Oct 18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/10/18/将数据库导入Excel/">将数据库导入EXCEL</a>
-    </h1>
-  
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Option Explicit  ‘强制申明<br>Dim cn As New ADODB.Connection<br>Dim myrs As New ADODB.Recordset<br>Dim mycnstr As String</p>
+<p>Private Sub Command1_Click()<br>Dim i%, j%<br>Dim newxls As Excel.application ‘先声明<br>Dim newbook As Excel.workbook<br>Dim newsheet As Excel.worksheet<br>Set newxls = CreateObject(“excel.application”) ‘再定义<br>Set newbook = newxls.Workbooks.Open(“” &amp; App.Path &amp; “\导地线库.xlsx”)  ‘创建工作簿<br>Set newsheet = newbook.Worksheets(1)<br>If Adodc1.Recordset.EOF = False Then   ‘定义了adodc1的数据连接，recordset就已经默认存在了，不需要再打开并使用sql语言<br>For i = 0 To Adodc1.Recordset.RecordCount - 1<br>For j = 0 To Adodc1.Recordset.Fields.Count - 1  ‘遍历数据库的所有记录 记录可以count，字段也有count<br>On Error Resume Next<br>DataGrid1.Row = i<br>DataGrid1.Col = j<br>newsheet.cells(i + 1, j + 1) = DataGrid1.Text   ‘datagrid也有行和列，明确了行和列就可以指出具体的值<br>Next j<br>Next i<br>End If</p>
+<p>newbook.Close  ‘记得打开了一定要关闭，先关闭book，再退出程序，最后释放内存<br>newxls.Quit<br>Set newxls = Nothing</p>
+<p>End Sub</p>
+<p>Private Sub Form_Load()<br>mycnstr = “Provider=Microsoft.Jet.OLEDB.4.0;Data Source= “ &amp; App.Path &amp; “\jjk.mdb;Persist Security Info=False”<br>‘cn.Open “Provider=Microsoft.Jet.OLEDB.4.0;Data Source= “ &amp; App.Path &amp; “\jjk.mdb;Persist Security Info=False”<br>Adodc1.ConnectionString = mycnstr<br>Adodc1.CommandType = adCmdTable<br>Adodc1.RecordSource = “ddxk”    ‘设置adodc1的数据源<br>Set DataGrid1.DataSource = Adodc1     ‘设置datagrid的数据源，把他关联到adodc1上<br>Text1.Text = App.Path &amp; “\jjk.mbp” ‘显示数据库的路径<br>End Sub</p>
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    
   </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/10/18/常用软件及下载地址/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">常见软件及下载地址</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/10/18/常用软件及下载地址/" class="archive-article-date">
-  	<time datetime="2015-10-18T03:46:21.294Z" itemprop="datePublished">Oct 18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/10/18/常用软件及下载地址/">常见软件及下载地址</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/10/18/markdowm的用法/" class="archive-article-date">
-  	<time datetime="2015-10-18T03:09:22.582Z" itemprop="datePublished">Oct 18</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/10/18/markdowm的用法/">markdowm的用法自我总结</a>
-    </h1>
-  
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="将数据库导入Excel" data-title="将数据库导入EXCEL" data-url="http://yoursite.com/2015/10/18/将数据库导入Excel/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
 
 </div>
       <footer id="footer">
@@ -316,8 +320,8 @@
 		mathjax: true,
 		animate: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false

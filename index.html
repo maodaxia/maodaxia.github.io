@@ -196,6 +196,61 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-将数据库导入Excel" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/18/将数据库导入Excel/" class="article-date">
+  	<time datetime="2015-10-18T14:31:50.682Z" itemprop="datePublished">2015-10-18</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/18/将数据库导入Excel/">将数据库导入EXCEL</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Option Explicit  ‘强制申明<br>Dim cn As New ADODB.Connection<br>Dim myrs As New ADODB.Recordset<br>Dim mycnstr As String</p>
+<p>Private Sub Command1_Click()<br>Dim i%, j%<br>Dim newxls As Excel.application ‘先声明<br>Dim newbook As Excel.workbook<br>Dim newsheet As Excel.worksheet<br>Set newxls = CreateObject(“excel.application”) ‘再定义<br>Set newbook = newxls.Workbooks.Open(“” &amp; App.Path &amp; “\导地线库.xlsx”)  ‘创建工作簿<br>Set newsheet = newbook.Worksheets(1)<br>If Adodc1.Recordset.EOF = False Then   ‘定义了adodc1的数据连接，recordset就已经默认存在了，不需要再打开并使用sql语言<br>For i = 0 To Adodc1.Recordset.RecordCount - 1<br>For j = 0 To Adodc1.Recordset.Fields.Count - 1  ‘遍历数据库的所有记录 记录可以count，字段也有count<br>On Error Resume Next<br>DataGrid1.Row = i<br>DataGrid1.Col = j<br>newsheet.cells(i + 1, j + 1) = DataGrid1.Text   ‘datagrid也有行和列，明确了行和列就可以指出具体的值<br>Next j<br>Next i<br>End If</p>
+<p>newbook.Close  ‘记得打开了一定要关闭，先关闭book，再退出程序，最后释放内存<br>newxls.Quit<br>Set newxls = Nothing</p>
+<p>End Sub</p>
+<p>Private Sub Form_Load()<br>mycnstr = “Provider=Microsoft.Jet.OLEDB.4.0;Data Source= “ &amp; App.Path &amp; “\jjk.mdb;Persist Security Info=False”<br>‘cn.Open “Provider=Microsoft.Jet.OLEDB.4.0;Data Source= “ &amp; App.Path &amp; “\jjk.mdb;Persist Security Info=False”<br>Adodc1.ConnectionString = mycnstr<br>Adodc1.CommandType = adCmdTable<br>Adodc1.RecordSource = “ddxk”    ‘设置adodc1的数据源<br>Set DataGrid1.DataSource = Adodc1     ‘设置datagrid的数据源，把他关联到adodc1上<br>Text1.Text = App.Path &amp; “\jjk.mbp” ‘显示数据库的路径<br>End Sub</p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-常用软件及下载地址" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
