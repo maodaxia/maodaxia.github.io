@@ -196,6 +196,131 @@
 </nav>
       <div class="body-wrap">
   
+    <article id="post-markdowm的用法" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/20/markdowm的用法/" class="article-date">
+  	<time datetime="2015-10-20T14:37:28.347Z" itemprop="datePublished">2015-10-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/20/markdowm的用法/">markdowm的用法自我总结</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="常用语法">常用语法</h1><ul>
+<li>标题下用“—”隔开，表示上面是标题，下面是正文</li>
+<li>#一级标题，##二级标题，###三级标题</li>
+<li>-无序号排序</li>
+<li>1.2.3.有序号排序<h1 id="其他语法">其他语法</h1></li>
+<li>大于号表示后面的文字是引用的</li>
+<li>方括号加小括号用于链接，方括号里面是显示文本，小括号里面是链接地址</li>
+<li>引号加方括号加小括号是链接图片，只需要在小括号中输入图片地址即可</li>
+<li>一边一个*夹着表示斜体</li>
+<li>一边两个*夹着表示粗体</li>
+<li>代码前后各`，表示夹着的是代码<h1 id="常见错误">常见错误</h1></li>
+<li>注意符号和正文中间要留空格<h1 id="参考链接">参考链接</h1></li>
+<li><a href="http://www.jianshu.com/p/q81RER" target="_blank" rel="external">献给写作者的 Markdown 新手指南</a></li>
+<li><a href="http://markdownpad.com/" target="_blank" rel="external">Windows平台推荐MarkdownPad下载地址</a></li>
+</ul>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
+    <article id="post-ADO用于网页前端" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/10/20/ADO用于网页前端/" class="article-date">
+  	<time datetime="2015-10-20T14:35:08.391Z" itemprop="datePublished">2015-10-20</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/20/ADO用于网页前端/">ADO控件无意中发现的宝库</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="ADO是什么">ADO是什么</h1><blockquote>
+<p>ADO 是一项微软的技术<br>ADO 指 ActiveX 数据对象（ActiveX Data Objects）<br>ADO 是一个微软的 Active-X 组件<br>ADO 会随微软的 IIS 被自动安装<br>ADO 是一个访问数据库中数据的编程接口</p>
+</blockquote>
+<h1 id="ADO的使用">ADO的使用</h1><p>使用 SQL 访问 “Customers” 表中的数据：</p>
+<blockquote>
+<p>&lt;%<br>set conn=Server.CreateObject(“ADODB.Connection”)<br>conn.Provider=”Microsoft.Jet.OLEDB.4.0”<br>conn.Open “c:/webdata/northwind.mdb”<br>set rs=Server.CreateObject(“ADODB.recordset”)<br>rs.Open “Select * from Customers”, conn<br>%&gt;</p>
+</blockquote>
+<h1 id="ADO用于网页前端的实例">ADO用于网页前端的实例</h1><p>我们有一个名为 “Northwind” 的数据库，并且我们希望显示出 “Customers” 表中的数据（记得以 .asp 为扩展名来保存这个文件）,可以通过下面的代码把表 “Customers” 中的数据显示在一个 HTML 表格中,我们希望为这个 HTML 表格添加标题.</p>
+<figure class="highlight vbscript-html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line"></span><span class="vbscript">&lt;%</span><br><span class="line"><span class="keyword">set</span> conn=<span class="built_in">Server</span>.<span class="built_in">CreateObject</span>(<span class="string">"ADODB.Connection"</span>)</span><br><span class="line">conn.Provider=<span class="string">"Microsoft.Jet.OLEDB.4.0"</span></span><br><span class="line">conn.Open(<span class="built_in">Server</span>.Mappath(<span class="string">"/db/northwind.mdb"</span>))</span><br><span class="line"><span class="keyword">set</span> rs = <span class="built_in">Server</span>.<span class="built_in">CreateObject</span>(<span class="string">"ADODB.recordset"</span>)</span><br><span class="line">sql=<span class="string">"SELECT Companyname, Contactname FROM Customers"</span></span><br><span class="line">rs.Open sql, conn</span><br><span class="line">%&gt;</span><span class="xml"></span><br><span class="line"><span class="tag">&lt;<span class="title">table</span> <span class="attribute">border</span>=<span class="value">"1"</span> <span class="attribute">width</span>=<span class="value">"100%"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">tr</span>&gt;</span></span><br><span class="line"></span><span class="vbscript">&lt;%<span class="keyword">for</span> <span class="keyword">each</span> x <span class="keyword">in</span> rs.Fields</span><br><span class="line">    <span class="built_in">response</span>.write(<span class="string">"&lt;th&gt;"</span> &amp; x.name &amp; <span class="string">"&lt;/th&gt;"</span>)</span><br><span class="line"><span class="keyword">next</span>%&gt;</span><span class="xml"></span><br><span class="line"><span class="tag">&lt;/<span class="title">tr</span>&gt;</span></span><br><span class="line"></span><span class="vbscript">&lt;%<span class="keyword">do</span> until rs.EOF%&gt;</span><span class="xml"></span><br><span class="line">    <span class="tag">&lt;<span class="title">tr</span>&gt;</span></span><br><span class="line">    </span><span class="vbscript">&lt;%<span class="keyword">for</span> <span class="keyword">each</span> x <span class="keyword">in</span> rs.Fields%&gt;</span><span class="xml"></span><br><span class="line">       <span class="tag">&lt;<span class="title">td</span>&gt;</span></span><span class="vbscript">&lt;%<span class="built_in">Response</span>.Write(x.value)%&gt;</span><span class="xml"><span class="tag">&lt;/<span class="title">td</span>&gt;</span></span><br><span class="line">    </span><span class="vbscript">&lt;%<span class="keyword">next</span></span><br><span class="line">    rs.MoveNext%&gt;</span><span class="xml"></span><br><span class="line">    <span class="tag">&lt;/<span class="title">tr</span>&gt;</span></span><br><span class="line"></span><span class="vbscript">&lt;%<span class="keyword">loop</span></span><br><span class="line">rs.close</span><br><span class="line">conn.close</span><br><span class="line">%&gt;</span><span class="xml"></span><br><span class="line"><span class="tag">&lt;/<span class="title">table</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<h1 id="参考资料">参考资料</h1><p><a href="http://www.w3school.com.cn/ado/ado_display.asp" target="_blank" rel="external">ADO用于网页前端</a></p>
+
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+  
     <article id="post-挡土墙学习" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
@@ -346,70 +471,6 @@
 <li><a href="http://git-scm.com/" target="_blank" rel="external">git</a> 是一款免费、开源的分布式版本控制系统，用于敏捷高效地处理任何或小或大的项目</li>
 <li><a href="http://markdownpad.com/" target="_blank" rel="external">markdownpad</a> 用于markdown格式文本编辑。<a href="http://zhidao.baidu.com/link?url=YyYe5sfrln-WvWtxd_b13zhAvaXjILHLZGuIKYM2i872-PdkKTo3wYSwqzgSKro3YpTwtvbqHWekvzho8qQqiZht3-taIl3v9ElHnsM6NyW" target="_blank" rel="external">win10系统下markdownpad2预览无法显示是怎么回事</a></li>
 </ol>
-
-      
-    </div>
-    
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-    
-  </div>
-  
-</article>
-
-
-
-
-
-
-
-  
-    <article id="post-markdowm的用法" class="article article-type-post" itemscope itemprop="blogPost">
-  
-    <div class="article-meta">
-      <a href="/2015/10/18/markdowm的用法/" class="article-date">
-  	<time datetime="2015-10-18T03:09:22.582Z" itemprop="datePublished">2015-10-18</time>
-</a>
-    </div>
-  
-  <div class="article-inner">
-    
-      <input type="hidden" class="isFancy" />
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/10/18/markdowm的用法/">markdowm的用法自我总结</a>
-    </h1>
-  
-
-      </header>
-      
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="常用语法">常用语法</h1><ul>
-<li>标题下用“—”隔开，表示上面是标题，下面是正文</li>
-<li>#一级标题，##二级标题，###三级标题</li>
-<li>-无序号排序</li>
-<li>1.2.3.有序号排序<h1 id="其他语法">其他语法</h1></li>
-<li>大于号表示后面的文字是引用的</li>
-<li>方括号加小括号用于链接，方括号里面是显示文本，小括号里面是链接地址</li>
-<li>引号加方括号加小括号是链接图片，只需要在小括号中输入图片地址即可</li>
-<li>一边一个*夹着表示斜体</li>
-<li>一边两个*夹着表示粗体<h1 id="常见错误">常见错误</h1></li>
-<li>注意符号和正文中间要留空格<h1 id="参考链接">参考链接</h1></li>
-<li><a href="http://www.jianshu.com/p/q81RER" target="_blank" rel="external">献给写作者的 Markdown 新手指南</a></li>
-<li><a href="http://markdownpad.com/" target="_blank" rel="external">Windows平台推荐MarkdownPad下载地址</a></li>
-</ul>
 
       
     </div>
